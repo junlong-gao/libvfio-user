@@ -1,6 +1,6 @@
 
 
-load("//third_party/spdk/src:common.bzl", "spdk_copts")
+load("//:common.bzl", "spdk_copts")
 
 package(default_visibility = ["//visibility:public"])
 
