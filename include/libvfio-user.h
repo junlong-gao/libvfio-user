@@ -229,7 +229,7 @@ vfu_setup_log(vfu_ctx_t *vfu_ctx, vfu_log_fn_t *log, int level);
  * @returns the number of bytes read or written, or -1 on error, setting errno.
  */
 typedef ssize_t (vfu_region_access_cb_t)(vfu_ctx_t *vfu_ctx, char *buf,
-                                         size_t count, loff_t offset,
+                                         size_t count, off_t offset,
                                          bool is_write);
 
 #define VFU_REGION_FLAG_READ      (1 << 0)

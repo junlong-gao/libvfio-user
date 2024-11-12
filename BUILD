@@ -14,10 +14,12 @@ cc_library(
     hdrs = glob([
         "include/*.h",
     ]),
+    deps = [
+        "@json-c//:json-c",
+    ],
     strip_include_prefix = "include",
     include_prefix = "vfio-user",
-    copts = spdk_copts + ["-I/usr/include/json-c"],
-    linkopts = ["-ljson-c"],
+    copts = spdk_copts,
     includes = ["include"],
     target_compatible_with = select({
         "@platforms//os:macos": ["@platforms//:incompatible"],
