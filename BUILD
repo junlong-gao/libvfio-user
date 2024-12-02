@@ -1,4 +1,4 @@
-load("//:common.bzl", "spdk_copts")
+load("//:common.bzl", "copts")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -12,7 +12,7 @@ cc_library(
     hdrs = glob([
         "include/*.h",
     ]),
-    copts = spdk_copts,
+    copts = copts,
     include_prefix = "vfio-user",
     includes = ["include"],
     strip_include_prefix = "include",

@@ -1,0 +1,7 @@
+module(
+    name = "libvfio-user",
+    version = "v0.0.1",
+)
+
+bazel_dep(name = "json-c", version = "565f181f656439847ef79650caad5c0b6c20171b")
+bazel_dep(name = "platforms", version = "0.0.8")
