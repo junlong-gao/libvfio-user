@@ -4,4 +4,22 @@ module(
 )
 
 bazel_dep(name = "json-c", version = "565f181f656439847ef79650caad5c0b6c20171b")
+git_override(
+   module_name="json-c",
+   remote = "git@github.com:junlong-gao/json-c.git",
+   commit = "61e800d2a9bdfb0f5f56d8ba6bebaa0f656af9cb", # bonfire
+)
+
 bazel_dep(name = "platforms", version = "0.0.8")
+
+# https://github.com/bazel-contrib/toolchains_llvm/releases
+bazel_dep(name = "toolchains_llvm", version = "1.2.0")
+#https://github.com/bazel-contrib/toolchains_llvm/issues/243
+llvm = use_extension("@toolchains_llvm//toolchain/extensions:llvm.bzl", "llvm", dev_dependency=True)
+llvm.toolchain(
+    name = "llvm_toolchain",
+    llvm_version = "19.1.0",
+)
+use_repo(llvm, "llvm_toolchain")
+
+register_toolchains("@llvm_toolchain//:all", dev_dependency=True)
